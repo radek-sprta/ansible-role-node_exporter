@@ -10,6 +10,14 @@
   changed_when: false
   register: node_exporter_version_check
 
+- name: Install unarchive software.
+  zypper:
+    name:
+      - tar
+      - gzip
+    state: present
+  when: ansible_os_family == 'Suse'
+
 - name: Download and unarchive node_exporter into temporary location.
   unarchive:
     src: "{{ node_exporter_download_url }}"

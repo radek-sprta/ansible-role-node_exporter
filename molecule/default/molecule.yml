@@ -8,14 +8,35 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos8}-ansible:latest"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+  - name: CentOS
+    image: geerlingguy/docker-centos8-ansible:latest
+    command: ''
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: Ubuntu
+    image: geerlingguy/docker-ubuntu2004-ansible
+    command: ''
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    privileged: true
+    pre_build_image: true
+  - name: Debian
+    image: geerlingguy/docker-debian10-ansible
+    command: ''
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: OpenSuse
+    image: rsprta/opensuse-ansible
+    command: ''
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
   playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+    converge: converge.yml

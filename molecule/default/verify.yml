@@ -1,0 +1,18 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    # Systemd acts weird in containers, so we check it
+    # directly, without using the service_facts
+    - name: Check that node_exporter is enabled and started
+      service:
+        name: node_exporter
+        enabled: true
+        state: started
+      register: service_status
+
+    - name: Assert node_exporter is enabled and started
+      assert:
+        that:
+          - "not service_status.changed"
