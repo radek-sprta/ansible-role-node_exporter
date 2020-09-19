@@ -28,6 +28,10 @@ The architecture and download URL for Node exporter. If you're on a Raspberry Pi
 
 The path where the `node_exporter` binary will be installed.
 
+    node_exporter_user: node_exporter
+
+The user the service will run under.
+
     node_exporter_options: ''
 
 Any additional options to pass to `node_exporter` when it starts, e.g. `--no-collector.wifi` if you want to ignore any WiFi data.

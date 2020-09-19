@@ -3,7 +3,7 @@ Description=NodeExporter
 
 [Service]
 TimeoutStartSec=0
-User=node_exporter
+User={{ node_exporter_user }}
 ExecStart={{ node_exporter_bin_path }} {% for flag, value in node_exporter_options.items() %}--{{ flag }}={{ flag_value }} {% endfor %}
 
 [Install]

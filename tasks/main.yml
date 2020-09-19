@@ -30,7 +30,7 @@
 
 - name: Create node_exporter user.
   user:
-    name: node_exporter
+    name: "{{ node_exporter_user }}"
     shell: /sbin/nologin
     state: present
 
