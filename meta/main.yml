@@ -9,34 +9,27 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-        - all
-    - name: GenericUNIX
-      versions:
-        - all
+        - 6
+        - 7
     - name: Fedora
       versions:
         - all
     - name: opensuse
       versions:
         - all
-    - name: GenericBSD
-      versions:
-        - all
-    - name: FreeBSD
-      versions:
-        - all
     - name: Ubuntu
       versions:
-        - all
+        - xenial
+        - bionic
+        - focal
     - name: SLES
-      versions:
-        - all
-    - name: GenericLinux
       versions:
         - all
     - name: Debian
       versions:
-        - all
+        - jessie
+        - stretch
+        - buster
   galaxy_tags:
     - system
     - docker
