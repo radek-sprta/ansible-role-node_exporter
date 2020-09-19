@@ -1,4 +1,9 @@
 ---
+- name: Set download url
+  set_fact:
+    node_exporter_download_url: "{{ __node_exporter_download_url }}"
+  when: not node_exporter_download_url | bool
+
 - name: Check current node_exporter version.
   command: "{{ node_exporter_bin_path }} --version"
   failed_when: false
