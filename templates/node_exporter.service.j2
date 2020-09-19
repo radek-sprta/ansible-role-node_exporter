@@ -4,7 +4,7 @@ Description=NodeExporter
 [Service]
 TimeoutStartSec=0
 User=node_exporter
-ExecStart={{ node_exporter_bin_path }} {{ node_exporter_options }}
+ExecStart={{ node_exporter_bin_path }} {% for flag, value in node_exporter_options.items() %}--{{ flag }}={{ flag_value }} {% endfor %}
 
 [Install]
 WantedBy=multi-user.target
