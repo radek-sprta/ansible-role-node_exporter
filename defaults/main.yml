@@ -3,12 +3,13 @@
 node_exporter_version: '1.0.1'
 node_exporter_download_url: ''
 
+# Service options
 node_exporter_bin_path: /usr/local/bin/node_exporter
+node_exporter_enabled: true
+node_exporter_state: started
 node_exporter_user: node_exporter
 
+# Exporter options
 node_exporter_options:
   'web.listen-address': ':9100'
   'log.level': 'info'
-
-node_exporter_state: started
-node_exporter_enabled: true
