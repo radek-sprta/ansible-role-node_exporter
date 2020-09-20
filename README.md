@@ -8,13 +8,13 @@ This role installs Prometheus' [Node exporter](https://github.com/prometheus/nod
 
 ### Service options
 - `node_exporter_enabled`: Whether service should be enabled. Defaults to `true`.
-- `node_exporter_state: Service state`. Defaults to `started`
+- `node_exporter_state: Service state`. Defaults to `started`.
 
 ### Exporter options
+- `node_exporter_listen_address`: IP address to listen on. Defaults to 0.0.0.0.
 - `node_exporter_options`: Map of options. Defaults to:
 
 ```yaml
-  'web.listen-address': ':9100'
   'log.level': 'info'
 ```
 

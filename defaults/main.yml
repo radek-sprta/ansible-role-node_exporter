@@ -10,6 +10,6 @@ node_exporter_state: started
 node_exporter_user: node_exporter
 
 # Exporter options
+node_exporter_listen_address: 0.0.0.0
 node_exporter_options:
-  'web.listen-address': ':9100'
   'log.level': 'info'
