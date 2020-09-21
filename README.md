@@ -3,6 +3,7 @@ This role installs Prometheus' [Node exporter](https://github.com/prometheus/nod
 
 ## Role Variables
 ### General options
+- `node_exporter_arch`: Source architecture. Detected at runtime by default.
 - `node_exporter_version`: Node exporter version to install. Defaults to 1.0.1.
 - `node_exporter_download_url`: Download url.
 
