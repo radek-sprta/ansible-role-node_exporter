@@ -11,5 +11,4 @@ node_exporter_user: node_exporter
 
 # Exporter options
 node_exporter_listen_address: 0.0.0.0
-node_exporter_options:
-  'log.level': 'info'
+node_exporter_options: ''
