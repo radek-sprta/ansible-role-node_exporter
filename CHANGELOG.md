@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Update default version.
-- Automatically set architecture at runtime.
+- Automatically detect architecture at runtime.
 
 ## 1.0.0 - 2020-05-23
 ### Added
