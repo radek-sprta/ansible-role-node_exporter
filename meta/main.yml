@@ -8,6 +8,7 @@ galaxy_info:
   min_ansible_version: 2.7
   platforms:
     - name: Alpine
+      versions:
         - any
     - name: EL
       versions:
