@@ -8,8 +8,14 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
+  - name: Alpine
+    image: rsprta/alpine-ansible
+    command: ''
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    pre_build_image: true
   - name: CentOS
-    image: geerlingguy/docker-centos8-ansible:latest
+    image: geerlingguy/docker-centos8-ansible
     command: ''
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro

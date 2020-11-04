@@ -1,0 +1,16 @@
+#!/sbin/openrc-run
+
+name="node_exporter"
+description="Prometheus NodeExporter"
+
+command="{{ node_exporter_bin_path }}"
+command_args="--web.listen-address={{ node_exporter_listen_address }}:9100
+              {{ node_exporter_options }}"
+command_background=true
+command_user="{{ node_exporter_user }}:{{ node_exporter_user }}"
+
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+  need net
+}
