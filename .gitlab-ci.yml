@@ -5,6 +5,7 @@ services:
 
 stages:
   - test
+  - release
 
 before_script:
   - docker -v
@@ -20,3 +21,11 @@ test:molecule:
     ANSIBLE_FORCE_COLOR: 1
   script:
     - molecule test
+
+release:galaxy:
+  stage: release
+  script:
+    - ansible-galaxy login --github-token $GITHUB_TOKEN
+    - ansible-galaxy role import $GITLAB_USER_LOGIN $CI_PROJECT_NAME
+  only:
+    - tags
