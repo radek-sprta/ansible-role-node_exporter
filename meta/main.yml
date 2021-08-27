@@ -3,6 +3,7 @@ dependencies: []
 galaxy_info:
   author: Radek Sprta
   role_name: node_exporter
+  namespace: radek_sprta
   description: Prometheus' node_exporter for Linux hosts.
   license: MIT
   min_ansible_version: 2.7

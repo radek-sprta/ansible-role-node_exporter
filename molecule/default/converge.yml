@@ -11,4 +11,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - role: ansible-role-node-exporter
+    - role: node_exporter
