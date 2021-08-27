@@ -11,4 +11,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - role: node_exporter
+    - role: radek_sprta.node_exporter
