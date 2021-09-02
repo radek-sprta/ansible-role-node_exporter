@@ -25,7 +25,6 @@ test:molecule:
 release:galaxy:
   stage: release
   script:
-    - ansible-galaxy login --github-token $GITHUB_TOKEN
-    - ansible-galaxy role import $GITLAB_USER_LOGIN ansible-role-node_exporter
+    - ansible-galaxy role import --token $GALAXY_TOKEN $GITLAB_USER_LOGIN ansible-role-node_exporter
   only:
     - tags
