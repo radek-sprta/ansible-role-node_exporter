@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.5.1][1.5.1] - 2021-12-18
+
+### Changed
+
+- Update default node exporter version to 1.3.1.
+
 ## [1.5.0][1.5.0] - 2021-11-19
 
 ### Changed
@@ -80,3 +86,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.4.1]: https://gitlab.com/radek-sprta/ansible-role-node-exporter/compare/v1.4.0...v1.4.1
 [1.4.2]: https://gitlab.com/radek-sprta/ansible-role-node-exporter/compare/v1.4.1...v1.4.2
 [1.5.0]: https://gitlab.com/radek-sprta/ansible-role-node-exporter/compare/v1.4.2...v1.5.0
+[1.5.1]: https://gitlab.com/radek-sprta/ansible-role-node-exporter/compare/v1.5.0...v1.5.1
