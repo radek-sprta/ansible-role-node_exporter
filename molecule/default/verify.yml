@@ -6,13 +6,13 @@
     # Systemd acts weird in containers, so we check it
     # directly, without using the service_facts
     - name: Check that node_exporter is enabled and started
-      service:
+      ansible.builtin.service:
         name: node_exporter
         enabled: true
         state: started
       register: service_status
 
     - name: Assert node_exporter is enabled and started
-      assert:
+      ansible.builtin.assert:
         that:
           - "not service_status.changed"

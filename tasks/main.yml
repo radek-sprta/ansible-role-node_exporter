@@ -1,17 +1,17 @@
 ---
 - name: Set download url
-  set_fact:
+  ansible.builtin.set_fact:
     node_exporter_download_url: "{{ __node_exporter_download_url }}"
   when: not node_exporter_download_url | bool
 
 - name: Check current node_exporter version.
-  command: "{{ node_exporter_bin_path }} --version"
+  ansible.builtin.command: "{{ node_exporter_bin_path }} --version"
   failed_when: false
   changed_when: false
   register: node_exporter_version_check
 
 - name: Download and unarchive node_exporter into temporary location.
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ node_exporter_download_url }}"
     dest: /tmp
     remote_src: true
@@ -21,7 +21,7 @@
     or node_exporter_version not in node_exporter_version_check.stdout
 
 - name: Move node_exporter binary into place.
-  copy:
+  ansible.builtin.copy:
     src: "/tmp/node_exporter-{{ node_exporter_version }}.linux-{{ node_exporter_arch | default(__node_exporter_arch_detected, true) }}/node_exporter"
     dest: "{{ node_exporter_bin_path }}"
     mode: 0755
@@ -29,13 +29,13 @@
   notify: restart node_exporter
 
 - name: Create node_exporter user.
-  user:
+  ansible.builtin.user:
     name: "{{ node_exporter_user }}"
     shell: /sbin/nologin
     state: present
 
 - name: Copy the node_exporter systemd unit file.
-  template:
+  ansible.builtin.template:
     src: "{{ item | basename }}.j2"
     dest: "{{ item }}"
     mode: 0644
@@ -45,7 +45,7 @@
   when: ansible_service_mgr == 'systemd'
 
 - name: Copy the node_exporter OpenRC init file.
-  template:
+  ansible.builtin.template:
     src: "{{ item | basename }}.j2"
     dest: "{{ item }}"
     mode: 0755
@@ -55,7 +55,7 @@
   when: ansible_service_mgr == 'openrc'
 
 - name: Reload systemd daemon if unit file is changed.
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: true
   notify: restart node_exporter
   when:
@@ -63,13 +63,13 @@
     - ansible_service_mgr == 'systemd'
 
 - name: Ensure node_exporter is running and enabled at boot.
-  service:
+  ansible.builtin.service:
     name: node_exporter
     state: "{{ node_exporter_state }}"
     enabled: "{{ node_exporter_enabled }}"
 
 - name: Verify node_exporter is responding to requests.
-  uri:
+  ansible.builtin.uri:
     url: "http://{{ node_exporter_listen_address }}:9100/"
     return_content: true
   register: metrics_output
