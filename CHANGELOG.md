@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Added
+
+- Support for Ubuntu.
+
 ## Removed
 
 - Remove support for Ansible 2.9 and lower.
+- Remove support for Ubuntu Xenial, Debian Jessie.
 
 ## [1.5.1][1.5.1] - 2021-12-18
 

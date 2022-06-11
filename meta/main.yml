@@ -6,15 +6,16 @@ galaxy_info:
   namespace: radek_sprta
   description: Prometheus' node_exporter for Linux hosts.
   license: MIT
-  min_ansible_version: 2.7
+  min_ansible_version: "2.10"
   platforms:
     - name: Alpine
       versions:
-        - any
+        - all
     - name: EL
       versions:
         - 6
         - 7
+        - 8
     - name: Fedora
       versions:
         - all
@@ -23,15 +24,14 @@ galaxy_info:
         - all
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
         - focal
+        - jammy
     - name: SLES
       versions:
         - all
     - name: Debian
       versions:
-        - jessie
         - stretch
         - buster
         - bullseye
