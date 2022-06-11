@@ -21,14 +21,14 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
-  - name: Ubuntu 20.04
+  - name: Focal
     image: geerlingguy/docker-ubuntu2004-ansible
     command: ''
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     privileged: true
     pre_build_image: true
-  - name: Ubuntu 22.04
+  - name: Jammy
     image: geerlingguy/docker-ubuntu2204-ansible
     command: ''
     volumes:
