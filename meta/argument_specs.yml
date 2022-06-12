@@ -1,0 +1,56 @@
+---
+arguments_specs:
+  main:
+    short_description: Main entrypoint for the role
+    options:
+      node_exporter_arch:
+        choices:
+          - i386
+          - x86_64
+          - aarch64
+          - armv7l
+          - armv6l
+        default: ""
+        description: CPU architecture. Automatically detected.
+        required: false
+        type: str
+      node_exporter_bin_path:
+        default: /usr/local/bin/node_exporter
+        description: Install path for the binary.
+        required: false
+        type: path
+      node_exporter_download_url:
+        default: ""
+        description: Binary download url. Automatically constructed.
+        required: false
+        type: str
+      node_exporter_enabled:
+        default: true
+        description: Enable node exporter service.
+        required: false
+        type: bool
+      node_exporter_listen_address:
+        default: 0.0.0.0
+        description: Address to listen on.
+        required: false
+        type: str
+      node_exporter_options:
+        default: ''
+        description: Extra arguments for node exporter.
+        required: false
+        type: str
+      node_exporter_state:
+        default: started
+        description: State of node exporter service.
+        required: false
+        type: str
+      node_exporter_user:
+        default: node_exporter
+        description: User to run node exporter as.
+        required: false
+        type: str
+      node_exporter_version:
+        default: "1.3.1"
+        description: Version to install.
+        required: false
+        type: str
