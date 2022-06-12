@@ -14,7 +14,7 @@ arguments_specs:
         description: CPU architecture. Automatically detected.
         required: false
         type: str
-      node_exporter_bin_path: 
+      node_exporter_bin_path:
         default: /usr/local/bin/node_exporter
         description: Install path for the binary.
         required: false
