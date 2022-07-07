@@ -20,7 +20,7 @@ test:molecule:
     PY_COLORS: 1
     ANSIBLE_FORCE_COLOR: 1
   script:
-    - molecule test
+    - molecule test --debug
 
 release:galaxy:
   stage: release
