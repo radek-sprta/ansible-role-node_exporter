@@ -12,5 +12,5 @@
 
   tasks:
     - name: "Include radek_sprta.node_exporter"
-      include_role:
+      ansible.builtin.include_role:
         name: "radek_sprta.node_exporter"
