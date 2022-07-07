@@ -11,4 +11,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-     - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+    - role: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
