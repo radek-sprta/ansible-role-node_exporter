@@ -10,7 +10,7 @@ lint: |
 platforms:
   - name: ansible-role-node-exporter
     image: ${MOLECULE_IMAGE:-rsprta/alpine-ansible}
-    command: ''
+    command: '/sbin/init'
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     pre_build_image: true
