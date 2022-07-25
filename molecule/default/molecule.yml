@@ -11,6 +11,8 @@ platforms:
   - name: ansible-role-node-exporter
     image: ${MOLECULE_IMAGE:-rsprta/alpine-ansible}
     command: ''
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
     pre_build_image: true
 provisioner:
   name: ansible
