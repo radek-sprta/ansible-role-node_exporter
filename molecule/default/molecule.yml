@@ -8,7 +8,7 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: ${CI_JOB_ID:-ansible-role-node-exporter}
+  - name: ansible-role-node-exporter-${CI_JOB_ID:-}
     image: ${MOLECULE_IMAGE:-rsprta/alpine-ansible}
     command: ''
     volumes:
