@@ -14,17 +14,30 @@ before_script:
   - molecule --version
 
 test:molecule:
+  parallel:
+    matrix:
+      - MOLECULE_IMAGE:
+          - geerlingguy/docker-centos8-ansible
+          - geerlingguy/docker-debian10-ansible
+          - geerlingguy/docker-rockylinux9-ansible
+          - geerlingguy/docker-ubuntu2004-ansible
+          - geerlingguy/docker-ubuntu2204-ansible
+          - rsprta/alpine-ansible
+          - rsprta/debian-ansible:bullseye
+          - rsprta/opensuse-ansible
+        MOLECULE_SCENARIO:
+          - "default"
+  script:
+    - molecule test -s "${MOLECULE_SCENARIO}"
   stage: test
   variables:
     DOCKER_HOST: "tcp://docker:2375"
     PY_COLORS: 1
     ANSIBLE_FORCE_COLOR: 1
-  script:
-    - molecule test
 
 release:galaxy:
-  stage: release
   script:
-    - ansible-galaxy role import --token $GALAXY_TOKEN $GITLAB_USER_LOGIN ansible-role-node_exporter
+    - ansible-galaxy role import --token $GALAXY_TOKEN $GITLAB_USER_LOGIN $CI_PROJECT_NAME
+  stage: release
   only:
     - tags

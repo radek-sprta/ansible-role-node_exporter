@@ -8,53 +8,11 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: Alpine
-    image: rsprta/alpine-ansible
+  - name: ansible-role-node-exporter
+    image: ${MOLECULE_IMAGE:-rsprta/alpine-ansible}
     command: ''
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    pre_build_image: true
-  - name: CentOS
-    image: geerlingguy/docker-centos8-ansible
-    command: ''
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-    pre_build_image: true
-  - name: Focal
-    image: geerlingguy/docker-ubuntu2004-ansible
-    command: ''
-    volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    privileged: true
-    pre_build_image: true
-  - name: Jammy
-    image: geerlingguy/docker-ubuntu2204-ansible
-    command: ''
-    volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    privileged: true
-    pre_build_image: true
-  - name: Debian
-    image: geerlingguy/docker-debian10-ansible
-    command: ''
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-    pre_build_image: true
-  - name: Debian-Bullseye
-    image: docker.io/rsprta/debian-ansible:bullseye
-    command: ''
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    privileged: true
-    pre_build_image: true
-  - name: OpenSuse
-    image: rsprta/opensuse-ansible
-    command: ''
-    volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
-    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
